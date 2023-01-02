@@ -1,9 +1,3 @@
-//import { appWindow } from '@tauri-apps/api/window';
-//import { invoke } from '@tauri-apps/api/tauri';
-//import tauriapi from '@tauri-apps/api';
-//const { invoke } = tauriapi.tauri;
-//const { appWindow } = tauriapi.tauri;
-//console.log("Init")
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
@@ -11,18 +5,14 @@ function delay(time) {
 const appWindow = window.__TAURI__.appWindow;
 const invoke = window.__TAURI__.invoke;
 let pct = 0;
-//({event, payload}) => document.getElementById("loading").innerHTML = "Loading..."+String(payload)+"%"
-/*const unlistenProgress = await appWindow.listen('PROGRESS',
-({event, payload}) => { pct = payload }
-);*/
-console.log("pre Started(js)")
+console.log("Started js");
 invoke('start_pct');
-console.log("Started(js)")
+console.log("Continued js");
 while (pct < 100) {
-  console.log("pre Sending(js)")
+  console.log("Before get_pct")
   invoke('get_pct')
     .then((response) => {
-      pct = parseInt(response, 10);
+      pct = response;
       console.log("Pct:");
       console.log(pct);
     })
@@ -30,16 +20,10 @@ while (pct < 100) {
       console.log("Error:");
       console.log(error);
     });
-  console.log("Sending(js)")
-  console.log(`Pct = ${pct}`)
+  console.log("After get_pct:");
+  console.log(`Pct = ${pct}`);
   document.getElementById("loading").innerHTML = "Loading..."+String(pct)+"%";
   await delay(1000);
 }
-//await new Promise(resolve => setTimeout(resolve, 1000));
 await delay(1000);
 invoke('close_splashscreen');
-/*document.addEventListener('DOMContentLoaded', () => {
-  // This will wait for the window to load, but you could
-  // run this function on whatever trigger you want
-  invoke('close_splashscreen')
-})*/
