@@ -4,9 +4,7 @@
 )]
 
 use std::sync::{Arc, Mutex};
-use tauri::Manager;
-use tauri::State;
-use tauri::Window;
+use tauri::{Manager, State, Window};
 
 struct Payload(Arc<Mutex<u8>>);
 
