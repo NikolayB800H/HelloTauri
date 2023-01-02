@@ -11,18 +11,18 @@ struct Payload(Arc<Mutex<u8>>);
 #[tauri::command]
 /// Temporary plug of data loading
 async fn start_pct(pct: State<'_, Payload>) -> Result<(), ()> {
-    for _i in 0..99 {
+    for _i in 0..100 {
         let mut locked = pct.0.lock().unwrap();
         *locked += 1;
         std::mem::drop(locked);
-        std::thread::sleep(std::time::Duration::from_millis(62));
+        std::thread::sleep(std::time::Duration::from_millis(50));
     }
     Ok(())
 }
 
 #[tauri::command]
 /// Get loading progress
-async fn get_pct(pct: State<'_, Payload>) -> Result<u8, ()> {
+fn get_pct(pct: State<'_, Payload>) -> Result<u8, ()> {
     let pct_local = *(pct.0.lock().unwrap());
     Ok(pct_local)
 }
