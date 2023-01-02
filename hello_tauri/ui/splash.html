@@ -1,0 +1,25 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>None</title>
+</head>
+<body>
+    <div id="loading" style="text-align: center; font-size: 2.5em;">Loading...</div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <g>
+            <circle cx="50" cy="50" r="32" stroke-width="8" stroke="#e15b64" stroke-dasharray="0, 202" stroke-dashoffset="0" fill="none" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+                <animate attributeName="stroke-dasharray" dur="5s" repeatCount="indefinite" calcMode="linear" keyTimes="0; 0.05; 0.95; 1" values="0 202; 0 202; 202 202; 202 202"></animate>
+            </circle>
+            <circle cx="50" cy="50" r="23" stroke-width="8" stroke="#f8b26a" stroke-dasharray="0 145" stroke-dashoffset="0" fill="none" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 50;-360 50 50"></animateTransform>
+                <animate attributeName="stroke-dasharray" dur="5s" repeatCount="indefinite" calcMode="linear" keyTimes="0; 0.05; 0.95; 1" values="0 145; 0 145; 145 145; 145 145"></animate>
+            </circle>
+            <animate attributeName="opacity" dur="5s" repeatCount="indefinite" calcMode="ease-in-out" keyTimes="0; 0.95; 1" values="1; 1; 0"></animate>
+        </g>
+    </svg>
+    <script type="module" src="splash.js"></script>
+</body>
+</html>
