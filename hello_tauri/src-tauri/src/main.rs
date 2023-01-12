@@ -6,6 +6,9 @@
 use std::sync::{Arc, Mutex};
 use tauri::{Manager, State, Window};
 
+extern crate hello_tauri;
+use hello_tauri::print_terminal_hello;
+
 struct Payload(Arc<Mutex<u8>>);
 
 #[tauri::command]
@@ -37,12 +40,10 @@ async fn close_splashscreen(window: Window) {
 }
 
 fn main() {
+    print_terminal_hello();
     tauri::Builder::default()
         .manage(Payload(Default::default()))
         .setup(|app| {
-            #[cfg(target_os = "windows")] {
-                //app.eval("window.location.replace('https://google.com')");
-            }
             let splashscreen_window = app.get_window("splashscreen").unwrap();
             splashscreen_window.center().unwrap();
             let main_window = app.get_window("main").unwrap();

@@ -42,6 +42,7 @@ checksum = "2cb2f989d18dd141ab8ae82f64d1a8cdd37e0840f73a406896cf5e99502fab61"
 name = "app"
 version = "0.1.0"
 dependencies = [
+ "hello_tauri",
  "serde",
  "serde_json",
  "tauri",
@@ -988,6 +989,10 @@ name = "heck"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2540771e65fc8cb83cd6e8a237f70c319bd5c29f78ed1084ba5d50eeac86f7f9"
+
+[[package]]
+name = "hello_tauri"
+version = "0.1.0"
 
 [[package]]
 name = "hermit-abi"
