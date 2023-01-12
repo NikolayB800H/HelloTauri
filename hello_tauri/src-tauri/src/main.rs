@@ -40,6 +40,9 @@ fn main() {
     tauri::Builder::default()
         .manage(Payload(Default::default()))
         .setup(|app| {
+            #[cfg(target_os = "windows")] {
+                //app.eval("window.location.replace('https://google.com')");
+            }
             let splashscreen_window = app.get_window("splashscreen").unwrap();
             splashscreen_window.center().unwrap();
             let main_window = app.get_window("main").unwrap();

@@ -60,7 +60,8 @@
         "resizable": true,
         "title": "hello_tauri",
         "width": 600,
-        "visible": false
+        "visible": false,
+        "center": true
       },
       {
         "width": 400,
@@ -68,7 +69,8 @@
         "decorations": false,
         "url": "splash.html",
         "label": "splashscreen",
-        "transparent": true
+        "transparent": true,
+        "center": true
       }
     ]
   }
